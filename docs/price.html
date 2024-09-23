@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+	a{border-radius: 5px;text-decoration: none;color: #fff;margin-left: 20px;background-color: #2f5f64;padding: 5px;}
+      ul{list-style: none;text-align: right;padding-right: 20px;margin:0;}
+	.menu{background-color: aliceblue;color: #000;height: 50px;width: 100%;margin-bottom: 80px;}
+      li{display: inline-block;margin: 8px 10px;padding: 5px;}
+        body{background-image: url('static/img/crop-2.jpg');background-position: center;
+            background-repeat: no-repeat;background-size: cover;}
+        .mainTit{text-align: center;color: #fff;background-color: #2f5f64;margin: 75px 350px;padding: 1px;
+            border-radius: 5px;}
+        input,select{width: 350px;height: 40px;display: block;margin-bottom: 25px;padding: 5px;outline: none;
+            border-radius: 5px;border: 1px solid;}
+        form{text-align: center;margin: 0 37%;}
+        button{border-radius: 2em;width: 95px;height: 33px;outline: none;border: none;font-size: 17px;
+            background-color: #2f5f64;color: #fff;padding-top: 2px;}
+        button:hover{background-color: #fff;color: #000;}
+        .crime{background-color: #2f5f64;color: #fff;margin: 45px 30%;text-align: center;height: 65px;font-size: 23px;
+            padding: 5px;border-radius: 5px;display: none;}
+    </style>
+</head>
+<body>
+    <section>  
+        <div class="mainTit">
+            <h2>CROP PRICE PREDICTION</h2>
+        </div>
+        <form action="/price_predict" method="post">
+            <input type="date" name="date" required>
+            <select name="dif" required>
+                <option value="1w">1 Week</option>
+                <option value="1m">1 Month</option>
+                <option value="3m">3 Month</option>
+            </select>
+            <select name="area" required>
+                {% for row in data1 %}
+                <option value="{{row}}">{{row}}</option>
+                {% endfor %}
+            </select>
+            <div class="mainBtn">
+                <button type="submit">Predict</button>
+                <a href='/price'>Reset</a>
+            </div>
+                
+            </form>
+            </form>
+            </form>
+        </form>
+        <div class="crime" {{view}}>
+			<label for="prod_name">Predicted Price for per qntl : {{data}}<br><!---- Location : {{l}}--></label>
+		</div>
+    </section>
+</body>
+</body>
+</html>
